@@ -39,7 +39,7 @@ public class HexGameService extends GameService<HexPosition> {
     // Los estudiantes deben inyectar dependencias
     // Ejemplos: repository, movementStrategy, validator, etc.
 
-    private final H2GameRepository gameRepository;
+    public final H2GameRepository gameRepository;
     private final CatMovementStrategy<HexPosition> movementStrategy;
     private final Function<Integer, GameBoard<HexPosition>> boardFactory;
     private final Function<String, GameState<HexPosition>> gameStateFactory;
