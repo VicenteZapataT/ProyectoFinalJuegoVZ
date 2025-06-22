@@ -20,7 +20,7 @@ import java.util.function.Predicate;
 public abstract class GameBoard<T extends Position> {
     
     protected final int size;
-    protected Set<T> blockedPositions;
+    public Set<T> blockedPositions;
     
     protected GameBoard(int size) {
         this.size = size;

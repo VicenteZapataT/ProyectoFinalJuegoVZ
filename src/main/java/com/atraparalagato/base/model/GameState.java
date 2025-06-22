@@ -26,7 +26,7 @@ public abstract class GameState<T extends Position> {
     protected final String gameId;
     protected final LocalDateTime createdAt;
     protected GameStatus status;
-    protected int moveCount;
+    public int moveCount;
     
     // Functional Programming: Callbacks para eventos
     protected Consumer<GameState<T>> onStateChanged;
@@ -166,7 +166,7 @@ public abstract class GameState<T extends Position> {
         return moveCount;
     }
     
-    protected final void incrementMoveCount() {
+    public final void incrementMoveCount() {
         this.moveCount++;
     }
     

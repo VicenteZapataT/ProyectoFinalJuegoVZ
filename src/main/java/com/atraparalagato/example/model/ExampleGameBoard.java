@@ -40,7 +40,7 @@ public class ExampleGameBoard extends GameBoard<HexPosition> {
     }
     
     @Override
-    protected boolean isValidMove(HexPosition position) {
+    public boolean isValidMove(HexPosition position) {
         // Un movimiento del JUGADOR es válido si está DENTRO del tablero (no en el borde) y no está bloqueado
         // El gato puede moverse al borde, pero el jugador no puede bloquear el borde
         return isPositionInBounds(position) && 
@@ -49,7 +49,7 @@ public class ExampleGameBoard extends GameBoard<HexPosition> {
     }
     
     @Override
-    protected void executeMove(HexPosition position) {
+    public void executeMove(HexPosition position) {
         // Agregar la posición a las posiciones bloqueadas
         blockedPositions.add(position);
     }
