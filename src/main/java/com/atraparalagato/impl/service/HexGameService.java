@@ -25,7 +25,7 @@ import java.util.function.Supplier;
 /**
  * Implementación esqueleto de GameService para el juego hexagonal.
  * 
- * Los estudiantes deben completar los métodos marcados con TODO.
+ * Los estudiantes deben completar los métodos marcados con 
  * 
  * Conceptos a implementar:
  * - Orquestación de todos los componentes del juego
@@ -90,6 +90,9 @@ public class HexGameService extends GameService<HexPosition> {
         // 4. Inicializar estado del juego
         String gameId = generateGameId();
         HexGameState gameState = new HexGameState(gameId, boardSize);
+
+        // 4.1 Configurar la posición inicial del gato en el centro (q:0, r:0, s:0)
+        gameState.setCatPosition(new HexPosition(0, 0));
 
         // 5. Guardar en repositorio
         gameRepository.save(gameState);
@@ -642,7 +645,6 @@ public class HexGameService extends GameService<HexPosition> {
             .toList();
 
         // Seleccionar el movimiento más cercano a un borde (como sugerencia simple)
-        int size = gameState.getGameBoard().getSize() - 1;
         return possibleMoves.stream()
                 .min((a, b) -> {
                     int distA = Math.min(Math.min(Math.abs(a.getQ()), Math.abs(a.getR())), Math.abs(a.getS()));
